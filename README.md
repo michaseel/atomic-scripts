@@ -20,7 +20,7 @@ a small cli helper-tool for fast component scaffolding.
 In your terminal start the cli-script via: `npm run atomic` or `yarn atomic`
 
 The answer all the questions and the component will be scaffolded into the correct directory.
-![atomic-scripts](http://www.giphy.com/gifs/l0CPbmWBJSbeirLNu/giphy.gif)
+![atomic-scripts](https://media.giphy.com/media/l0CPbmWBJSbeirLNu/giphy.gif)
    
 ## Configuration
 
