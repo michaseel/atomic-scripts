@@ -1,0 +1,20 @@
+{
+  "name": "atomic-scripts",
+  "version": "0.0.1",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "description": "React Component Generator in Atomic-Design Manner",
+  "main": "index.js",
+  "keywords": [
+    "react",
+    "generator",
+    "cli",
+    "atomic",
+    "styleguidist",
+    "snapshot-tests",
+    "styled-components"
+  ],
+  "scripts": {
+  },
+  "dependencies": {
+  }
+}
