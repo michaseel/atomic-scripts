@@ -26,7 +26,7 @@ For custom componentTypes to choose in your cli: add them in your `package.json`
    +      "atoms",
    +      "molecules",
    +      "organisms",
-   +      "templates",          
+   +      "templates"          
    +    ]
      }
    }
