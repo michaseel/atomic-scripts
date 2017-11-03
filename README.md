@@ -19,8 +19,7 @@ a small cli helper-tool for fast component scaffolding.
 ## Configuration
 
 For custom componentTypes to choose in your cli: add them in your `package.json` config:
-
-```diff json
+   ```diff json
      "atomic-scripts": {
        "componentsDir": "src/components/",
    +   "componentTypes": [
@@ -35,7 +34,7 @@ For custom componentTypes to choose in your cli: add them in your `package.json`
    
 If you want to specify your own templates: configure the path of your own templates.js in the `package.json` config:
 
-```diff json
+   ```diff json
      "atomic-scripts": {
        "componentsDir": "src/components/",
    +   "templates": "thePathToYour/templates.js"
