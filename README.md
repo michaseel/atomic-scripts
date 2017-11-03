@@ -65,3 +65,11 @@ Here is an example how this answers object could look like:
 
 For an quickstart look at the original [templates.js](/templates/templates.js) file.
 
+## Created by
+
+- [Michael Seel](https://github.com/michaseel)
+
+
+## License
+
+MIT © [Michael Seel](https://github.com/michaseel)

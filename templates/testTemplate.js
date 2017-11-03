@@ -1,3 +1,3 @@
-module.exports = (answers) => `
+module.exports = answers => `
 console.log('this is the component ${answers.name}!!!');
 `;

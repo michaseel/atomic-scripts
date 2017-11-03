@@ -10,7 +10,7 @@
     "url": "https://github.com/michaseel/atomic-scripts/issues"
   },
   "bin": {
-    "atomic-scripts": "./index.js"
+    "atomic-scripts": "./bin/index.js"
   },
   "description": "React Component Generator in Atomic-Design Manner",
   "keywords": [
@@ -23,7 +23,7 @@
     "styled-components"
   ],
   "files": [
-    "index.js",
+    "bin",
     "templates"
   ],
   "dependencies": {
@@ -32,5 +32,11 @@
     "inquirer": "^3.3.0",
     "lodash": "^4.17.4",
     "mkdirp": "^0.5.1"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }

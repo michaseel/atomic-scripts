@@ -2,8 +2,8 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
-const mkdirp = require('mkdirp');
 const getDirName = require('path').dirname;
+const mkdirp = require('mkdirp');
 
 const appRoot = require('app-root-path');
 const packageJson = require(appRoot.resolve('package.json'));
@@ -13,7 +13,7 @@ const _ = require('lodash');
 const chalk = require('chalk');
 
 const templatesFile = _.get(packageJson, 'atomic-scripts.templates');
-const defaultTemplates = require('./templates/templates');
+const defaultTemplates = require('../templates/templates');
 const templates = templatesFile ? appRoot.resolve(templatesFile) : defaultTemplates;
 
 const prompt = inquirer.createPromptModule();
