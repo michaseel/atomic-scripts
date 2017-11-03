@@ -2,7 +2,7 @@
 a small cli helper-tool for fast component scaffolding.
 
 ## Installation
-1. `npm install --save-dev atomic-scripts`
+1. `npm install --save-dev atomic-scripts` or `yarn add --dev atomic-scripts`
 
 2. Update your `package.json` like this:
    ```diff json
@@ -15,6 +15,12 @@ a small cli helper-tool for fast component scaffolding.
    + }
    }
    ```
+   
+## Usage:
+In your terminal start the cli-script via: `npm run atomic` or `yarn atomic`
+
+The answer all the questions and the component will be scaffolded into the correct directory.
+![atomic-scripts](http://www.giphy.com/gifs/l0CPbmWBJSbeirLNu)
    
 ## Configuration
 
