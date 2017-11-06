@@ -3,7 +3,7 @@
 
 const appRoot = require('app-root-path');
 const packageJson = require(appRoot.resolve('package.json'));
-
+var fs = require('fs');
 const inquirer = require('inquirer');
 const _ = require('lodash');
 const chalk = require('chalk');
@@ -35,8 +35,6 @@ const componentTypes = _.get(packageJson, 'atomic-scripts.componentTypes', [
 
 const componentsDir = _.get(packageJson, 'atomic-scripts.componentsDir', 'src/components');
 
-
-
 const questions = [
   {
     type: 'list',
@@ -49,7 +47,13 @@ const questions = [
     type: 'input',
     name: 'name',
     message: 'name your component',
-    // validate: (answer) => answer.indexOf(' ') === -1,
+    validate: (input, answers) => {
+      const componentDir = `${appRoot}/${componentsDir}/${answers.type}s/${input}`;
+      if (fs.existsSync(componentDir)) {
+        return 'Error: this component already exists: '+ componentDir;
+      }
+      return true;
+    },
     filter: (answer) => _.chain(answer).camelCase().upperFirst().value(),
   }
 ];

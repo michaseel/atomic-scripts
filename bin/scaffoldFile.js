@@ -6,6 +6,8 @@ const appRoot = require('app-root-path');
 const _ = require('lodash');
 const chalk = require('chalk');
 
+const log = console.log;
+
 const writeFile = (path, contents, cb) => {
   mkdirp(getDirName(path), function (err) {
     if (err) return cb(err);
