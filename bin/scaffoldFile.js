@@ -11,7 +11,6 @@ const log = console.log;
 const writeFile = (path, contents, cb) => {
   mkdirp(getDirName(path), function (err) {
     if (err) return cb(err);
-
     fs.writeFile(path, contents, cb);
   });
 };

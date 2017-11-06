@@ -37,6 +37,7 @@
     "jest": "^21.2.1"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --watch",
+    "coverage": "jest --coverage"
   }
 }
