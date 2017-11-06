@@ -55,7 +55,27 @@ const questions = [
       return true;
     },
     filter: (answer) => _.chain(answer).camelCase().upperFirst().value(),
-  }
+  },
+  {
+    type: 'list',
+    name: 'notation',
+    message: 'choose a component notation',
+    default: 'stateless',
+    choices: [
+      {
+        value: 'stateless',
+        name: 'Stateless functional Component'
+      },
+      {
+        value: 'class',
+        name: 'Statefull Class Component'
+      },
+      {
+        value: 'styled',
+        name: 'Styled-Component'
+      },
+    ],
+  },
 ];
 
 prompt(questions)
