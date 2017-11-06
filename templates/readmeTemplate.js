@@ -1,3 +1,7 @@
-module.exports = answers => `
-this is my readme file for the ${answers.type} named ${answers.name}
+module.exports = answers =>
+`## Demo of the ${answers.type} ${answers.name}
+
+    <${answers.name} />
+    
+Please add more examples    
 `;
