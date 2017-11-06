@@ -1,6 +1,6 @@
-const componentTemplate = require('./componentTemplate');
-const testTemplate = require('./testTemplate');
-const readmeTemplate = require('./readmeTemplate');
+const componentTemplate = require('./component.template');
+const testTemplate = require('./test.template');
+const readmeTemplate = require('./readme.template');
 
 const baseFileName = (fileExtension) => (answers) => `${answers.type}s/${answers.name}/${answers.name}${fileExtension}`
 
