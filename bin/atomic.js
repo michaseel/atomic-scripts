@@ -11,7 +11,7 @@ const templatesFile = _.get(packageJson, 'atomic-scripts.templates');
 
 const templates = templatesFile ? appRoot.resolve(templatesFile) : defaultTemplates;
 
-const scaffoldFile = require('./scaffoldFile');
+const { scaffoldFile } = require('./scaffoldFile');
 
 const log = console.log;
 
@@ -87,7 +87,7 @@ const questions = [
   },
 ];
 
-module.exports = () => {
+const atomic = () => {
   if (!checkSuppliedTemplates(templates)) process.exit(1);
 
   const prompt = inquirer.createPromptModule();
@@ -100,6 +100,7 @@ module.exports = () => {
 };
 
 module.exports = {
+  atomic,
   getComponentTypes,
   validateComponentName,
   filterComponentName,

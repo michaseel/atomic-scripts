@@ -39,4 +39,7 @@ const scaffoldFile = (template, answers, componentsDir) => {
   });
 };
 
-module.exports = scaffoldFile;
+module.exports = {
+  scaffoldFile,
+  writeFile,
+};
