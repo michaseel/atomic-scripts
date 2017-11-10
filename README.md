@@ -1,6 +1,8 @@
 # atomic-scripts
 a small cli helper-tool for fast component scaffolding.
 
+[![Build Status](https://travis-ci.org/michaseel/atomic-scripts.svg?branch=master)](https://travis-ci.org/michaseel/atomic-scripts)
+
 ## Installation
 1. `npm install --save-dev atomic-scripts` or `yarn add --dev atomic-scripts`
 
