@@ -2,7 +2,7 @@ module.exports = displayPropValues = (props, children) => {
   const propList = props.map(
     prop => prop.name === 'children'
       ? ''
-      : `      ${prop.name}: {JSON.stringify(${prop.name})}\n`
+      : `          ${prop.name}: {JSON.stringify(${prop.name})}\n`
   ).join('');
   if (propList === '') return `${children ? '{children}' : ''}`;
 
@@ -10,6 +10,6 @@ module.exports = displayPropValues = (props, children) => {
       These are your props:
       
 ${propList}    
-    </pre>
+      </pre>
     ${children ? '{children}' : ''}`;
 };
