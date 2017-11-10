@@ -29,13 +29,9 @@ const scaffoldFile = (template, answers, componentsDir) => {
   const fileContent = _.isFunction(template.fileContent) ? template.fileContent(answers) : template.fileContent;
 
   writeFile(fileName, fileContent, function(err) {
-    if(err) {
-      return console.warn(chalk.red(`The File ${fileName} could not be saved!`));
-    }
-
+    if(err) return console.warn(chalk.red(`The File ${fileName} could not be saved!`));
     console.log(chalk.green(`The File ${fileName} was saved!`));
   });
-
   return true;
 };
 

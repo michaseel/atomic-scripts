@@ -85,7 +85,112 @@ const questions = [
       },
     ],
   },
+  {
+    type: 'confirm',
+    name: 'children',
+    message: 'should this component have children?',
+    when: (answers) => answers.notation !== 'styled',
+    default: true,
+  },
+  {
+    type: 'confirm',
+    name: 'addProps',
+    message: 'do you want to add props? (just hit enter for YES)',
+    default: true,
+  }
 ];
+
+const propQuestions = [
+  {
+    type: 'input',
+    name: 'propName',
+    message: 'What is the name of your Prop?'
+  },
+  {
+    type: 'confirm',
+    name: 'required',
+    message: 'is this prop required?',
+    default: true
+  },
+  {
+    type: 'list',
+    name: 'propType',
+    message: 'choose a propType',
+    default: 'string',
+    choices: [
+      {
+        value: 'string',
+        name: 'String',
+      },
+      {
+        value: 'bool',
+        name: 'Boolean',
+      },
+      {
+        value: 'number',
+        name: 'Number',
+      },
+      {
+        value: 'array',
+        name: 'Array',
+      },
+      {
+        value: 'object',
+        name: 'Object',
+      },
+      {
+        value: 'func',
+        name: 'Function',
+      },
+    ],
+  },
+/*  {
+    type: 'input',
+    name: 'defaultValue',
+    message: 'This prop is not required. Please specify a default Value',
+    // when: (answers) => answers.required === false,
+    // validate: (input, { propType }) => typeof input === propType ? true : `The default value must be a ${ propType }`,
+    filter: (input, { propType }) => {
+      switch (propType) {
+        case 'bool':
+          return (input === 'true');
+        case 'number':
+          return _.toNumber(input);
+        case 'array':
+          return [];
+        case 'object':
+          return {};
+        default:
+          return input;
+      }
+    },
+  },*/
+  {
+    type: 'confirm',
+    name: 'addAnotherProp',
+    message: 'Do you want to add another Prop? (just hit enter for YES)?',
+    default: true
+  }
+];
+
+const props = [];
+
+const addProp = (answers) => {
+  const prompt = inquirer.createPromptModule();
+  return prompt(propQuestions).then(
+    (propAnswers) => {
+      props.push({
+        name: propAnswers.propName,
+        type: propAnswers.propType,
+        required: propAnswers.required,
+      });
+      if (propAnswers.addAnotherProp) {
+        return addProp(answers);
+      } else {
+        return answers;
+      }
+  });
+};
 
 const atomic = () => {
   if (!checkSuppliedTemplates(templates)) process.exit(1);
@@ -93,7 +198,25 @@ const atomic = () => {
   const prompt = inquirer.createPromptModule();
   prompt(questions)
     .then(
+      answers => {
+        if (answers.addProps) {
+          return addProp(answers);
+        }
+        return answers;
+      }
+    )
+    .then(
       (answers) => {
+        if (answers.children) {
+          props.push({
+            name: 'children',
+            type: 'node',
+            required: true,
+          });
+        }
+
+        answers.props = _.sortBy(props, 'name');
+        console.log(answers.props);
         templates.forEach((template) => scaffoldFile(template, answers, componentsDir))
       }
     );
