@@ -38,7 +38,8 @@
     "jest": "^21.2.1"
   },
   "scripts": {
-    "test": "node node_modules/.bin/jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test": "jest",
+    "test:ci": "node node_modules/.bin/jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage"
   }
