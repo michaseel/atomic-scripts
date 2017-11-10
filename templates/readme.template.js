@@ -1,23 +1,9 @@
-const getDefaultValue = require('./helpers/getDefaultValue');
+const renderComponentDemo = require('./helpers/renderComponentDemo');
 
-const renderRequiredProps = (props = []) => props.map(
-  prop => prop.required && prop.name !== 'children'
-    ? `      ${prop.name}={${getDefaultValue(prop.type)}}\n`
-    : ''
-  ).join('');
+module.exports = ({name, type, props = [], children}) =>
+`## Demo of the ${type} ${name}
 
-const renderClosingTag = ({ children, name }) => children === true ?
-`>
-       Lorem Ipsum Children
-    </${name}>`
-: '/>';
-
-module.exports = answers =>
-`## Demo of the ${answers.type} ${answers.name}
-
-    <${answers.name} 
-${renderRequiredProps(answers.props)}
-    ${renderClosingTag(answers)}
+    ${renderComponentDemo(name, props, children)}
     
 Please add more examples    
 `;
