@@ -144,27 +144,6 @@ const propQuestions = [
       },
     ],
   },
-/*  {
-    type: 'input',
-    name: 'defaultValue',
-    message: 'This prop is not required. Please specify a default Value',
-    // when: (answers) => answers.required === false,
-    // validate: (input, { propType }) => typeof input === propType ? true : `The default value must be a ${ propType }`,
-    filter: (input, { propType }) => {
-      switch (propType) {
-        case 'bool':
-          return (input === 'true');
-        case 'number':
-          return _.toNumber(input);
-        case 'array':
-          return [];
-        case 'object':
-          return {};
-        default:
-          return input;
-      }
-    },
-  },*/
   {
     type: 'confirm',
     name: 'addAnotherProp',
@@ -207,6 +186,9 @@ const atomic = () => {
     )
     .then(
       (answers) => {
+        if (answers.notation === 'styled') {
+          answers.children = true;
+        }
         if (answers.children) {
           props.push({
             name: 'children',
