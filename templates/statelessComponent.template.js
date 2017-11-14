@@ -1,11 +1,12 @@
 const renderDefaultProps = require('./helpers/renderDefaultProps');
 const displayPropValues = require('./helpers/displayPropValues');
+const renderPropTypes = require('./helpers/renderPropTypes');
 
 const renderPropList = (props) => props.map(
   prop => `  ${prop.name},`
   ).join('\n');
 
-const renderPropTypes = require('./helpers/renderPropTypes');
+
 
 module.exports = ({ name, type, props = [], children }) =>
 `import React from 'react';

@@ -1,19 +1,18 @@
 const renderDefaultProps = require('./helpers/renderDefaultProps');
+const renderPropTypes = require('./helpers/renderPropTypes');
 
 module.exports = ({ name, props = [] }) =>
 `import React from 'react';
-import type {Node} from 'react';
+import type { Node } from 'react';
 import styled from 'styled-components';
 
+${renderPropTypes(props)}
+
 const ${name}Styled = styled.span\`
-  
+  /* your CSS here */
 \`;
 
-const ${name} = props => (
-  <${name}Styled {...props}>
-    {props.children}
-  </${name}Styled>
-);
+const ${name} = (props: Props): Node => <Styled${name} {...props} />;
 
 ${renderDefaultProps(name, props)} 
 
