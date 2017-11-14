@@ -52,12 +52,12 @@ describe('classComponent Template', () => {
     };
     const result = classComponent(answers);
     expect(result).toContain('import React, { Component } from \'react\';');  // should import react
-    expect(result).toContain('import type { Node } from \'react\';'); // should import PropTypes
-    expect(result).toContain('export default class TestName extends Component<Props, State> {'); // class declaration
+    expect(result).toContain('import type { Node } from \'react\';'); // should import Node type
+    expect(result).toContain('class TestName extends Component<Props, State> {'); // class declaration
     expect(result).toContain('state = {\n\n  };'); // empty state
     expect(result).toContain('type Props = {'); // define Prop Type
     expect(result).toContain('type State = {'); // define State Type
-    expect(result).toContain('static defaultProps = {'); // define defaultProps
+    expect(result).toContain('TestName.defaultProps = {'); // define defaultProps
 
 
     /* check props: destructuring, display and propTypes */
@@ -113,12 +113,12 @@ describe('classComponent Template', () => {
     };
     const result = classComponent(answers);
     expect(result).toContain('import React, { Component } from \'react\';');  // should import react
-    expect(result).toContain('import type { Node } from \'react\';'); // should import PropTypes
-    expect(result).toContain('export default class TestName extends Component<Props, State> {'); // class declaration
+    expect(result).toContain('import type { Node } from \'react\';'); // should import Node type
+    expect(result).toContain('class TestName extends Component<Props, State> {'); // class declaration
     expect(result).toContain('state = {\n\n  };'); // empty state
     expect(result).toContain('type Props = {'); // define Prop Type
     expect(result).toContain('type State = {'); // define State Type
-    expect(result).toContain('static defaultProps = {'); // define defaultProps
+    expect(result).toContain('TestName.defaultProps = {'); // define defaultProps
 
 
     /* check props: destructuring, display and propTypes */
@@ -152,12 +152,12 @@ describe('classComponent Template', () => {
     };
     const result = classComponent(answers);
     expect(result).toContain('import React, { Component } from \'react\';');  // should import react
-    expect(result).toContain('import type { Node } from \'react\';'); // should import PropTypes
-    expect(result).toContain('export default class TestName extends Component<Props, State> {'); // class declaration
+    expect(result).toContain('import type { Node } from \'react\';'); // should import Node type
+    expect(result).toContain('class TestName extends Component<Props, State> {'); // class declaration
     expect(result).toContain('state = {\n\n  };'); // empty state
     expect(result).toContain('type Props = {'); // define Prop Type
     expect(result).toContain('type State = {'); // define State Type
-    expect(result).toContain('static defaultProps = {'); // define defaultProps
+    expect(result).toContain('TestName.defaultProps = {'); // define defaultProps
 
 
     /* check props: destructuring, display and propTypes */
@@ -177,12 +177,12 @@ describe('classComponent Template', () => {
     };
     const result = classComponent(answers);
     expect(result).toContain('import React, { Component } from \'react\';');  // should import react
-    expect(result).toContain('import type { Node } from \'react\';'); // should import PropTypes
-    expect(result).toContain('export default class TestName extends Component<Props, State> {'); // class declaration
+    expect(result).toContain('import type { Node } from \'react\';'); // should import Node type
+    expect(result).toContain('class TestName extends Component<Props, State> {'); // class declaration
     expect(result).toContain('state = {\n\n  };'); // empty state
     expect(result).toContain('type Props = {'); // define Prop Type
     expect(result).toContain('type State = {'); // define State Type
-    expect(result).toContain('static defaultProps = {'); // define defaultProps
+    expect(result).toContain('TestName.defaultProps = {'); // define defaultProps
 
 
     /* check props: destructuring, display and propTypes */

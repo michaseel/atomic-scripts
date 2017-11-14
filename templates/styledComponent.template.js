@@ -1,21 +1,21 @@
-module.exports = answers =>
+const renderDefaultProps = require('./helpers/renderDefaultProps');
+
+module.exports = ({ name, props = [] }) =>
 `import React from 'react';
 import type {Node} from 'react';
 import styled from 'styled-components';
 
-const ${answers.name}Styled = styled.span\`
+const ${name}Styled = styled.span\`
   
 \`;
 
-const ${answers.name} = props => (
-  <${answers.name}Styled {...props}>
+const ${name} = props => (
+  <${name}Styled {...props}>
     {props.children}
-  </${answers.name}Styled>
+  </${name}Styled>
 );
 
-${answers.name}.defaultProps = {
-  
-};
+${renderDefaultProps(name, props)} 
 
-export default ${answers.name};
+export default ${name};
 `;
