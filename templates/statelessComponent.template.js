@@ -13,14 +13,14 @@ const renderPropTypes = (props) => props.map(
 
 module.exports = ({ name, type, props = [], children }) =>
 `import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 
 const ${name} = ({ 
 ${renderPropList(props)} 
-}) => (
+}): Node => (
   <div>
     <h3>Empty ${type} ${name}</h3>
-    ${displayPropValues(props, children)}
+      ${displayPropValues(props, children)}
   </div>
 );
 

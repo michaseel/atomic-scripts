@@ -14,7 +14,7 @@ describe('getDefaultValue', () => {
     expect(getDefaultValue('object')).toEqual('{}');
   });
   test('function', () => {
-    expect(getDefaultValue('func')).toEqual('() => true');
+    expect(getDefaultValue('func')).toEqual('(parameterA: number) => true');
   });
   test('string', () => {
     expect(getDefaultValue('string')).toEqual('\'\'');

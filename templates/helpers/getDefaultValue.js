@@ -9,7 +9,9 @@ const getDefaultValue = type => {
     case 'object':
       return '{}';
     case 'func':
-      return '() => true';
+      return '(parameterA: number) => true';
+    case 'node':
+      return '<div></div>';
     default:
       return '\'\'';
   }

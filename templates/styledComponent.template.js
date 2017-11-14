@@ -1,6 +1,6 @@
 module.exports = answers =>
 `import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import styled from 'styled-components';
 
 const ${answers.name}Styled = styled.span\`
@@ -14,10 +14,6 @@ const ${answers.name} = props => (
 );
 
 ${answers.name}.defaultProps = {
-  
-};
-
-${answers.name}.propTypes = {
   
 };
 

@@ -24,6 +24,26 @@ describe('classComponent Template', () => {
           required: true,
         },
         {
+          name: 'propName4',
+          type: 'object',
+          required: false,
+        },
+        {
+          name: 'propName5',
+          type: 'func',
+          required: false,
+        },
+        {
+          name: 'propName6',
+          type: 'array',
+          required: false,
+        },
+        {
+          name: 'propName7',
+          type: 'node',
+          required: false,
+        },
+        {
           name: 'children',
           type: 'node',
           required: true,
@@ -32,26 +52,39 @@ describe('classComponent Template', () => {
     };
     const result = classComponent(answers);
     expect(result).toContain('import React, { Component } from \'react\';');  // should import react
-    expect(result).toContain('import PropTypes from \'prop-types\';'); // should import PropTypes
-    expect(result).toContain('export default class TestName extends Component {'); // class declaration
+    expect(result).toContain('import type { Node } from \'react\';'); // should import PropTypes
+    expect(result).toContain('export default class TestName extends Component<Props, State> {'); // class declaration
     expect(result).toContain('state = {\n\n  };'); // empty state
-    expect(result).toContain('static propTypes = {'); // define PropTypes
+    expect(result).toContain('type Props = {'); // define Prop Type
+    expect(result).toContain('type State = {'); // define State Type
     expect(result).toContain('static defaultProps = {'); // define defaultProps
 
 
     /* check props: destructuring, display and propTypes */
     expect(result).toContain('propName1: false');
     expect(result).toContain('propName1: {JSON.stringify(propName1)}');
-    expect(result).toContain('propName1: PropTypes.bool,');
+    expect(result).toContain('propName1?: bool,');
 
     expect(result).toContain('propName2: {JSON.stringify(propName2)}');
-    expect(result).toContain('propName2: PropTypes.number.isRequired,');
+    expect(result).toContain('propName2: number,');
 
     expect(result).toContain('propName3: {JSON.stringify(propName3)}');
-    expect(result).toContain('propName3: PropTypes.string.isRequired,');
+    expect(result).toContain('propName3: string');
+
+    expect(result).toContain('propName4: {JSON.stringify(propName4)}');
+    expect(result).toContain('propName4?: {');
+
+    expect(result).toContain('propName5: Function');
+    expect(result).toContain('propName5?: (');
+
+    expect(result).toContain('propName6: {JSON.stringify(propName6)}');
+    expect(result).toContain('propName6?: Array<');
+
+    expect(result).toContain('propName7: {propName7}');
+    expect(result).toContain('propName7?: Node,');
 
     expect(result).toContain('{children}');
-    expect(result).toContain('children: PropTypes.node.isRequired,');
+    expect(result).toContain('children: Node,');
   });
 
   test('without children but with props ', () => {
@@ -80,26 +113,27 @@ describe('classComponent Template', () => {
     };
     const result = classComponent(answers);
     expect(result).toContain('import React, { Component } from \'react\';');  // should import react
-    expect(result).toContain('import PropTypes from \'prop-types\';'); // should import PropTypes
-    expect(result).toContain('export default class TestName extends Component {'); // class declaration
+    expect(result).toContain('import type { Node } from \'react\';'); // should import PropTypes
+    expect(result).toContain('export default class TestName extends Component<Props, State> {'); // class declaration
     expect(result).toContain('state = {\n\n  };'); // empty state
-    expect(result).toContain('static propTypes = {'); // define PropTypes
+    expect(result).toContain('type Props = {'); // define Prop Type
+    expect(result).toContain('type State = {'); // define State Type
     expect(result).toContain('static defaultProps = {'); // define defaultProps
 
 
     /* check props: destructuring, display and propTypes */
     expect(result).toContain('propName1: false');
     expect(result).toContain('propName1: {JSON.stringify(propName1)}');
-    expect(result).toContain('propName1: PropTypes.bool,');
+    expect(result).toContain('propName1?: bool,');
 
     expect(result).toContain('propName2: {JSON.stringify(propName2)}');
-    expect(result).toContain('propName2: PropTypes.number.isRequired,');
+    expect(result).toContain('propName2: number,');
 
     expect(result).toContain('propName3: {JSON.stringify(propName3)}');
-    expect(result).toContain('propName3: PropTypes.string.isRequired,');
+    expect(result).toContain('propName3: string,');
 
     expect(result).not.toContain('{children}');
-    expect(result).not.toContain('children: PropTypes.node.isRequired,');
+    expect(result).not.toContain('children: Node,');
   });
 
   test('with children without other props ', () => {
@@ -118,10 +152,11 @@ describe('classComponent Template', () => {
     };
     const result = classComponent(answers);
     expect(result).toContain('import React, { Component } from \'react\';');  // should import react
-    expect(result).toContain('import PropTypes from \'prop-types\';'); // should import PropTypes
-    expect(result).toContain('export default class TestName extends Component {'); // class declaration
+    expect(result).toContain('import type { Node } from \'react\';'); // should import PropTypes
+    expect(result).toContain('export default class TestName extends Component<Props, State> {'); // class declaration
     expect(result).toContain('state = {\n\n  };'); // empty state
-    expect(result).toContain('static propTypes = {'); // define PropTypes
+    expect(result).toContain('type Props = {'); // define Prop Type
+    expect(result).toContain('type State = {'); // define State Type
     expect(result).toContain('static defaultProps = {'); // define defaultProps
 
 
@@ -129,7 +164,7 @@ describe('classComponent Template', () => {
     expect(result).not.toContain('propName');
 
     expect(result).toContain('{children}');
-    expect(result).toContain('children: PropTypes.node.isRequired,');
+    expect(result).toContain('children: Node,');
   });
 
   test('without children and props ', () => {
@@ -142,10 +177,11 @@ describe('classComponent Template', () => {
     };
     const result = classComponent(answers);
     expect(result).toContain('import React, { Component } from \'react\';');  // should import react
-    expect(result).toContain('import PropTypes from \'prop-types\';'); // should import PropTypes
-    expect(result).toContain('export default class TestName extends Component {'); // class declaration
+    expect(result).toContain('import type { Node } from \'react\';'); // should import PropTypes
+    expect(result).toContain('export default class TestName extends Component<Props, State> {'); // class declaration
     expect(result).toContain('state = {\n\n  };'); // empty state
-    expect(result).toContain('static propTypes = {'); // define PropTypes
+    expect(result).toContain('type Props = {'); // define Prop Type
+    expect(result).toContain('type State = {'); // define State Type
     expect(result).toContain('static defaultProps = {'); // define defaultProps
 
 

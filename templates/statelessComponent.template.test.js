@@ -1,6 +1,6 @@
 const statelessComponent = require('./statelessComponent.template');
 
-describe('statelessComponent Template', () => {
+describe.skip('statelessComponent Template', () => {
   test('with children an props ', () => {
     const answers = {
       name: 'TestName',
