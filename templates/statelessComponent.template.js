@@ -1,32 +1,29 @@
-const getDefaultValue = require('./helpers/getDefaultValue');
+const renderDefaultProps = require('./helpers/renderDefaultProps');
 const displayPropValues = require('./helpers/displayPropValues');
+const renderPropTypes = require('./helpers/renderPropTypes');
 
 const renderPropList = (props) => props.map(
-  prop => prop.required
-    ? `  ${prop.name},`
-    : `  ${prop.name} = ${getDefaultValue(prop.type)},`
+  prop => `  ${prop.name},`
   ).join('\n');
 
-const renderPropTypes = (props) => props.map(
-  prop => `  ${prop.name}: PropTypes.${prop.type}${prop.required ? '.isRequired' : ''},`)
-  .join('\n');
+
 
 module.exports = ({ name, type, props = [], children }) =>
 `import React from 'react';
-import PropTypes from 'prop-types';
+import type { Node } from 'react';
+
+${renderPropTypes(props)}
 
 const ${name} = ({ 
 ${renderPropList(props)} 
-}) => (
+}): Node => (
   <div>
     <h3>Empty ${type} ${name}</h3>
-    ${displayPropValues(props, children)}
+      ${displayPropValues(props, children)}
   </div>
 );
 
-${name}.propTypes = {
-${renderPropTypes(props)}
-};
+${renderDefaultProps(name, props)} 
 
 export default ${name};
 `;

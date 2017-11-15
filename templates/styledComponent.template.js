@@ -1,25 +1,20 @@
-module.exports = answers =>
+const renderDefaultProps = require('./helpers/renderDefaultProps');
+const renderPropTypes = require('./helpers/renderPropTypes');
+
+module.exports = ({ name, props = [] }) =>
 `import React from 'react';
-import PropTypes from 'prop-types';
+import type { Node } from 'react';
 import styled from 'styled-components';
 
-const ${answers.name}Styled = styled.span\`
-  
+${renderPropTypes(props)}
+
+const ${name}Styled = styled.span\`
+  /* your CSS here */
 \`;
 
-const ${answers.name} = props => (
-  <${answers.name}Styled {...props}>
-    {props.children}
-  </${answers.name}Styled>
-);
+const ${name} = (props: Props): Node => <Styled${name} {...props} />;
 
-${answers.name}.defaultProps = {
-  
-};
+${renderDefaultProps(name, props)} 
 
-${answers.name}.propTypes = {
-  
-};
-
-export default ${answers.name};
+export default ${name};
 `;

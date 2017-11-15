@@ -1,9 +1,7 @@
 const getDefaultValue = require('./helpers/getDefaultValue');
 const displayPropValues = require('./helpers/displayPropValues');
-
-const renderPropTypes = (props) => props.map(
-  prop => `    ${prop.name}: PropTypes.${prop.type}${prop.required ? '.isRequired' : ''},`)
-  .join('\n');
+const renderPropTypes = require('./helpers/renderPropTypes');
+const renderDefaultProps = require('./helpers/renderDefaultProps');
 
 const destructureProps = (props) => {
   if (props.length === 0) return '';
@@ -17,30 +15,23 @@ ${propList}
     } = this.props;`;
 };
 
-const renderDefaultProps = (props) => props.map(
-  prop => prop.required
-    ? ''
-    : `    ${prop.name}: ${getDefaultValue(prop.type)},\n`
-).join('');
-
 module.exports = ({ name, type, props = [], children }) =>
 `import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import type { Node } from 'react';
 
-export default class ${name} extends Component {
+${renderPropTypes(props)}
+
+type State = {
+  
+}
+
+class ${name} extends Component<Props, State> {
+  /* the initial state */
   state = {
 
   };
 
-  static propTypes = {
-${renderPropTypes(props)}
-  };
-
-  static defaultProps = {
-${renderDefaultProps(props)}
-  };
-
-  render() {
+  render(): Node {
     ${destructureProps(props)}
     return (
       <div>
@@ -50,4 +41,8 @@ ${renderDefaultProps(props)}
     );
   }
 }
+
+${renderDefaultProps(name, props)}
+
+export default ${name};
 `;
