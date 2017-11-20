@@ -9,7 +9,8 @@ const renderPropList = (props) => props.map(
 
 
 module.exports = ({ name, type, props = [], children }) =>
-`import React from 'react';
+`// @flow
+import React from 'react';
 import type { Node } from 'react';
 
 ${renderPropTypes(props)}

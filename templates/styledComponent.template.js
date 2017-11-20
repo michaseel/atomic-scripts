@@ -2,7 +2,8 @@ const renderDefaultProps = require('./helpers/renderDefaultProps');
 const renderPropTypes = require('./helpers/renderPropTypes');
 
 module.exports = ({ name, props = [] }) =>
-`import React from 'react';
+`// @flow
+import React from 'react';
 import type { Node } from 'react';
 import styled from 'styled-components';
 

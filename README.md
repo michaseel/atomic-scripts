@@ -1,6 +1,7 @@
 # atomic-scripts
 a small cli helper-tool for fast component scaffolding.
 
+[![npm](https://img.shields.io/npm/v/atomic-scripts.svg)]()
 [![Build Status](https://travis-ci.org/michaseel/atomic-scripts.svg?branch=master)](https://travis-ci.org/michaseel/atomic-scripts)
 [![Coverage Status](https://coveralls.io/repos/github/michaseel/atomic-scripts/badge.svg?branch=master)](https://coveralls.io/github/michaseel/atomic-scripts?branch=master)
 

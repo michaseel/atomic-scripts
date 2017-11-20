@@ -16,7 +16,8 @@ ${propList}
 };
 
 module.exports = ({ name, type, props = [], children }) =>
-`import React, { Component } from 'react';
+`// @flow
+import React, { Component } from 'react';
 import type { Node } from 'react';
 
 ${renderPropTypes(props)}
