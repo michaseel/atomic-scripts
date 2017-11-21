@@ -1,14 +1,18 @@
 const getDefaultValue = require('./getDefaultValue');
 
-const renderDefaultPropsList = (props) => props.map(
-  prop => !prop.required && `  ${prop.name}: ${getDefaultValue(prop.type)},`
+const renderDefaultPropsList = (props, isClass = false) => props.map(
+  prop => !prop.required && `${isClass ? '    ' : '  '}${prop.name}: ${getDefaultValue(prop.type)},`
 ).filter(e => e).join('\n');
 
-const renderDefaultProps = (name, props) => {
-  const PropsList = renderDefaultPropsList(props);
+const renderDefaultProps = (name, props, isClass = false) => {
+  const PropsList = renderDefaultPropsList(props, isClass);
+  if (isClass) return `static defaultProps = {
+${PropsList}
+  };`;
+
   return `${name}.defaultProps = {
-${PropsList}  
-}`;
+${PropsList}
+};`;
 };
 
 module.exports = renderDefaultProps;

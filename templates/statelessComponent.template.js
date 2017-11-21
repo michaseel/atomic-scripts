@@ -15,16 +15,16 @@ import type { Node } from 'react';
 
 ${renderPropTypes(props)}
 
-const ${name} = ({ 
-${renderPropList(props)} 
-}): Node => (
+const ${name} = ({
+${renderPropList(props)}
+}: Props): Node => (
   <div>
     <h3>Empty ${type} ${name}</h3>
-      ${displayPropValues(props, children)}
+    ${displayPropValues(props, children)}
   </div>
 );
 
-${renderDefaultProps(name, props)} 
+${renderDefaultProps(name, props)}
 
 export default ${name};
 `;

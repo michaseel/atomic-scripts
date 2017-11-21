@@ -19,7 +19,7 @@ const displayPropValues = (props, children) => {
 
   return `<pre>
         This are your props:
-      
+
 ${propList}    
       </pre>
     ${children ? '{children}' : ''}`;

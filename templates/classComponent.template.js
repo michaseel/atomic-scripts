@@ -23,10 +23,12 @@ import type { Node } from 'react';
 ${renderPropTypes(props)}
 
 type State = {
-  
+
 }
 
 class ${name} extends Component<Props, State> {
+  ${renderDefaultProps(name, props)}
+  
   /* the initial state */
   state = {
 
@@ -42,8 +44,6 @@ class ${name} extends Component<Props, State> {
     );
   }
 }
-
-${renderDefaultProps(name, props)}
 
 export default ${name};
 `;

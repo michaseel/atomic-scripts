@@ -21,7 +21,7 @@ const renderPropTypes = (props) => {
 `)
     .join('\n');
   return `type Props = {
-${typeDefs}  
+${typeDefs}
 }`;
 };
 

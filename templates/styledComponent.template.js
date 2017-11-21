@@ -13,7 +13,7 @@ const ${name}Styled = styled.span\`
   /* your CSS here */
 \`;
 
-const ${name} = (props: Props): Node => <Styled${name} {...props} />;
+const ${name} = (props: Props): Node => <${name}Styled {...props} />;
 
 ${renderDefaultProps(name, props)} 
 

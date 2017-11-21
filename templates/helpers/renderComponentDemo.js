@@ -14,7 +14,7 @@ const renderClosingTag = (children, name) => children === true ?
   : '/>';
 
 module.exports = (name, props, children) => {
-  return `<${name} 
+  return `<${name}
 ${renderRequiredProps(props)}
     ${renderClosingTag(children, name)}`;
 };
