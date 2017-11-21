@@ -34,7 +34,7 @@ describe('statelessComponent Template', () => {
     expect(result).toContain('import React from \'react\';\n');  // should import react
     expect(result).toContain('import type { Node } from \'react\';'); // should import Node type
     expect(result).toContain('const TestName = ({'); // function declaration
-    expect(result).toContain('}): Node => ('); // arrow function
+    expect(result).toContain('}: Props): Node => ('); // arrow function
     expect(result).toContain('type Props = {'); // define Prop Type
     expect(result).toContain('export default TestName;'); // export the function
 
@@ -85,7 +85,7 @@ describe('statelessComponent Template', () => {
     expect(result).toContain('import React from \'react\';\n');  // should import react
     expect(result).toContain('import type { Node } from \'react\';'); // should import Node type
     expect(result).toContain('const TestName = ({'); // function declaration
-    expect(result).toContain('}): Node => ('); // arrow function
+    expect(result).toContain('}: Props): Node => ('); // arrow function
     expect(result).toContain('type Props = {'); // define Prop Type
     expect(result).toContain('export default TestName;'); // export the function
 
@@ -124,7 +124,7 @@ describe('statelessComponent Template', () => {
     expect(result).toContain('import React from \'react\';\n');  // should import react
     expect(result).toContain('import type { Node } from \'react\';'); // should import Node type
     expect(result).toContain('const TestName = ({'); // function declaration
-    expect(result).toContain('}): Node => ('); // arrow function
+    expect(result).toContain('}: Props): Node => ('); // arrow function
     expect(result).toContain('type Props = {'); // define Prop Type
     expect(result).toContain('export default TestName;'); // export the function
 
@@ -149,7 +149,7 @@ describe('statelessComponent Template', () => {
     expect(result).toContain('import React from \'react\';\n');  // should import react
     expect(result).toContain('import type { Node } from \'react\';'); // should import Node type
     expect(result).toContain('const TestName = ({'); // function declaration
-    expect(result).toContain('}): Node => ('); // arrow function
+    expect(result).toContain('}: Props): Node => ('); // arrow function
     expect(result).toContain('type Props = {'); // define Prop Type
     expect(result).toContain('export default TestName;'); // export the function
 
