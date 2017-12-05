@@ -1,4 +1,6 @@
 # atomic-scripts
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/michaseel/atomic-scripts.svg)](https://greenkeeper.io/)
 a small cli helper-tool for fast component scaffolding.
 
 [![npm](https://img.shields.io/npm/v/atomic-scripts.svg)]()
