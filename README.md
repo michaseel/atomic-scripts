@@ -31,12 +31,11 @@ The answer all the questions and the component will be scaffolded into the corre
 For custom componentTypes to choose in your cli: add them in your `package.json` config:
    ```diff json
      "atomic-scripts": {
-       "componentsDir": "src/components/",
    +   "componentTypes": [
-   +      "atoms",
-   +      "molecules",
-   +      "organisms",
-   +      "templates"          
+   +      "atom",
+   +      "molecule",
+   +      "organism",
+   +      "template"          
    +    ]
      }
    }
