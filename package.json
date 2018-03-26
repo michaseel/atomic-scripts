@@ -30,7 +30,7 @@
     "app-root-path": "^2.0.1",
     "chalk": "^2.3.0",
     "coveralls": "^3.0.0",
-    "inquirer": "^4.0.1",
+    "inquirer": "^5.2.0",
     "lodash": "^4.17.4",
     "mkdirp": "^0.5.1"
   },
