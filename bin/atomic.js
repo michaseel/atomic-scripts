@@ -9,7 +9,7 @@ const defaultTemplates = require('../templates/templates');
 
 const templatesFile = _.get(packageJson, 'atomic-scripts.templates');
 
-const templates = templatesFile ? appRoot.resolve(templatesFile) : defaultTemplates;
+const templates = templatesFile ? require(appRoot.resolve(templatesFile)) : defaultTemplates;
 
 const { scaffoldFile } = require('./scaffoldFile');
 
